@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Compare with BC
+Comment=Show differences between files or directories
+Exec=bcompare %F
+Icon-Name=bcomparefull32
+Selection=2
+Extensions=any;
+Quote=double

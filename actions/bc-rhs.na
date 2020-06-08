@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Compare to KeePassXC.desktop
+Comment=Select right side for comparison
+Exec=<helper.py -r %F>
+Icon-Name=bcomparefull32
+Selection=S
+Extensions=any;
+Quote=double
