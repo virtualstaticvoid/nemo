@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Open with Sublime Merge
+Comment=Open folder with Sublime Merge Git Repository viewer
+Exec=smerge %F
+Icon-Name=sublime-merge
+Selection=S
+Extensions=any;
+Quote=double
