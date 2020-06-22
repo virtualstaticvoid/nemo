@@ -2,7 +2,7 @@
 Name=Open with Sublime Text
 Comment=Open folder with Sublime Text
 Exec=subl %F
-Icon-Name=sublime
+Icon-Name=sublime-text
 Selection=S
 Extensions=any;
 Quote=double
