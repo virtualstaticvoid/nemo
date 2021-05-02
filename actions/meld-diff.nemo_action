@@ -1,8 +1,0 @@
-[Nemo Action]
-Name=Compare with meld
-Comment=Show differences between files or directories
-Exec=meld %F
-Icon-Name=meld
-Selection=M
-Extensions=any;
-Quote=double
