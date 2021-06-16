@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Nemo integration for Beyond Compare 3
 #
@@ -64,10 +64,10 @@ else:
 
 	try:
 		os.symlink(act_lhs, act_link_l)
-	except OSError, e:
+	except OSError as e:
 		if errno.EEXIST == e.errno:
 			try:
 				os.unlink(act_link_l)
 				os.symlink(act_lhs, act_link_l)
 			except:
-				print "Setup failed."
+				print("Setup failed.")
