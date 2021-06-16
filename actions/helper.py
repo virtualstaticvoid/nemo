@@ -45,14 +45,15 @@ if len(sys.argv)==3:
 			# Stash lhs path.
 			with open(state, 'w') as f:
 				f.write(sys.argv[2])
-			# Rewrite the action for the rhs.
-			# Be liberal in what we accept, and conservative in what we generate.
-			lines = [line for line in open(act_rhs, 'r')]
-			pat = r'^([\ \t])*Name([\ \t])*=.*'
-			lines = [re.sub(pat,'Name=Compare to '+os.path.basename(sys.argv[2]), line) for line in lines]
-			with open(act_rhs, 'w') as f:
-				for line in lines:
-					f.write(line)
+			# # Rewrite the action for the rhs.
+			# # Be liberal in what we accept, and conservative in what we generate.
+			# lines = [line for line in open(act_rhs, 'r')]
+			# pat = r'^([\ \t])*Name([\ \t])*=.*'
+			# lines = [re.sub(pat,'Name=Compare to '+os.path.basename(sys.argv[2]), line) for line in lines]
+			# with open(act_rhs, 'w') as f:
+			# 	for line in lines:
+			# 		f.write(line)
+
 			# Create symlink so the rhs option will appear
 			os.symlink(act_rhs, act_link_r)
 else:
