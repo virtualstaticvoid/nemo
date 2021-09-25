@@ -11,9 +11,9 @@
 for p in $NEMO_SCRIPT_SELECTED_FILE_PATHS;
 do
 
-  cd "$p"
-  name=$(git remote | head -n 1)
-  url=$(git remote get-url $name)
-  xdg-open "$url"
+  (
+    cd "$p"
+    gh repo view --web
+  )
 
 done
