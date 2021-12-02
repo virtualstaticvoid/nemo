@@ -1,7 +1,7 @@
 [Nemo Action]
 Name=Open with GitHub
 Comment=Open GitHub page for folder
-Exec=/home/cjs/bin/open-in-github %F
+Exec=/home/cjs/bin/open-with-github %F
 Selection=S
 Extensions=any;
 Quote=double
