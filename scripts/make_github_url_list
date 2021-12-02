@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: rewrite in Ruby/Python to unescape URLs
+
 # - NEMO_SCRIPT_SELECTED_FILE_PATHS: newline-delimited paths for selected files (only if local)
 # - NEMO_SCRIPT_SELECTED_URIS: newline-delimited URIs for selected files
 # - NEMO_SCRIPT_CURRENT_URI: URI for current location
@@ -8,16 +10,24 @@
 # - NEMO_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window
 # - NEMO_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window
 
+if [[ $NEMO_SCRIPT_CURRENT_URI == x-nemo-search* ]]; then
+  PATHS=$(echo "$NEMO_SCRIPT_SELECTED_URIS" | sed 's|file://||g')
+else
+  PATHS="$NEMO_SCRIPT_SELECTED_FILE_PATHS"
+fi
+
 file=$(mktemp)
 
-for p in $NEMO_SCRIPT_SELECTED_FILE_PATHS;
+for p in $PATHS;
 do
-
-  cd "$p"
-  name=$(git remote | head -n 1)
-  url=$(git remote get-url $name)
-  echo $url >> $file
-
+  (
+    cd "$p"
+    name=$(git remote | head -n 1)
+    url=$(git remote get-url $name)
+    echo $url >> $file
+  )
 done
 
-gedit $file
+xclip -selection clipboard < $file
+
+rm $file
